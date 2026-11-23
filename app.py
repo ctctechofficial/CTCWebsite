@@ -15,9 +15,12 @@ def health():
 def home():
     return FileResponse(BASE_DIR / "templates" / "index.html")
 
+BASE_DIR = Path(__file__).resolve().parent
+
 @app.get("/googlef644425f8a684ee4.html")
 def google_verification():
-    return FileResponse("googlef644425f8a684ee4.html")
+    file_path = BASE_DIR / "googlef644425f8a684ee4.html"
+    return FileResponse(file_path)
 
 if __name__ == "__main__":
     import uvicorn
