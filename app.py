@@ -22,6 +22,16 @@ def google_verification():
     file_path = BASE_DIR / "googlef644425f8a684ee4.html"
     return FileResponse(file_path)
 
+BASE_DIR = Path(__file__).resolve().parent
+
+@app.get("/sitemap.xml")
+def sitemap():
+    return FileResponse(BASE_DIR / "sitemap.xml", media_type="application/xml")
+
+@app.get("/robots.txt")
+def robots():
+    return FileResponse(BASE_DIR / "robots.txt", media_type="text/plain")
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
